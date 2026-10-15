@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    font-family: 'Nunito', sans-serif;
+    color: #25251f;
+    background: #f8f5ec;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.home {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #f8f5ec;
+    background-image: radial-gradient(#d9d1bf 0.7px, transparent 0.7px);
+    background-size: 19px 19px;
+}
+
+/* Top navigation */
+
+.topbar {
+    height: 76px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ded8c9;
+    background: rgba(248, 245, 236, 0.9);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #25251f;
+    font-size: 1.45rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+.brand-icon {
+    color: #f05b40;
+    font-size: 1.8rem;
+}
+
+.brand-dot {
+    color: #f05b40;
+    margin-left: -9px;
+}
+
+.topbar-note {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #777366;
+}
+
+/* Main layout */
+
+.home-main {
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 70px 24px 85px;
+}
+
+.hero {
+    width: 100%;
+    max-width: 510px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-sticker {
+    display: table;
+    margin: 0 auto 20px;
+    padding: 8px 13px;
+    background: #f6d65e;
+    border: 2px solid #25251f;
+    border-radius: 5px 9px 4px 8px;
+    transform: rotate(-2deg);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.hero h1 {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(3.4rem, 8vw, 5.6rem);
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #f05b40;
+    position: relative;
+    display: inline-block;
+}
+
+.hero h1 span::after {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 0;
+    bottom: -7px;
+    height: 5px;
+    border-radius: 50%;
+    background: #f6d65e;
+    transform: rotate(-1.5deg);
+}
+
+.hero-description {
+    margin: 25px 0 32px;
+    text-align: center;
+    color: #777366;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+/* Game panel */
+
+.game-panel {
+    padding: 25px;
+    background: #fffdf7;
+    border: 2px solid #25251f;
+    border-radius: 12px 10px 13px 9px;
+    box-shadow: 6px 7px 0 #25251f;
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #777366;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.game-panel input {
+    display: block;
+    width: 100%;
+    height: 52px;
+    padding: 0 15px;
+    color: #25251f;
+    background: #f8f5ec;
+    border: 1.5px solid #d9d1bf;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.game-panel input::placeholder {
+    color: #aaa393;
+}
+
+.game-panel input:focus {
+    border-color: #25251f;
+    box-shadow: 3px 3px 0 #f6d65e;
+}
+
+/* Action cards */
+
+.action-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 19px;
+}
+
+.action-card {
+    width: 100%;
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px;
+    text-align: left;
+    color: #25251f;
+    border: 1.5px solid #25251f;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.create-card {
+    background: #f6d65e;
+    box-shadow: 3px 3px 0 #25251f;
+}
+
+.join-card {
+    background: #bde8df;
+    box-shadow: 3px 3px 0 #25251f;
+}
+
+.action-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #25251f;
+}
+
+.action-card:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #25251f;
+}
+
+.action-card:focus-visible {
+    outline: 3px solid #f05b40;
+    outline-offset: 5px;
+}
+
+.card-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.48);
+    border: 1.5px solid #25251f;
+    border-radius: 7px;
+    font-size: 1.4rem;
+}
+
+.card-copy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-copy strong {
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.card-copy small {
+    color: #5f5a4e;
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.card-arrow {
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.panel-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 23px;
+    color: #898272;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.4px;
+    text-align: center;
+}
+
+.live-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    background: #f05b40;
+    border-radius: 50%;
+}
+
+/* Floating hand-drawn decorations */
+
+.doodle {
+    position: absolute;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+}
+
+.doodle-star {
+    top: 17%;
+    left: 17%;
+    color: #f05b40;
+    font-size: 4.4rem;
+    transform: rotate(-13deg);
+}
+
+.doodle-squiggle {
+    top: 27%;
+    right: 15%;
+    color: #458d7b;
+    font-size: 4.5rem;
+    transform: rotate(-20deg);
+}
+
+.doodle-smile {
+    right: 18%;
+    bottom: 17%;
+    color: #d7a62c;
+    font-size: 4.5rem;
+    transform: rotate(12deg);
+}
+
+.doodle-spark {
+    left: 17%;
+    bottom: 21%;
+    color: #458d7b;
+    font-size: 3rem;
+    transform: rotate(10deg);
+}
+
+/* Footer */
+
+.bottom-bar {
+    min-height: 52px;
+    padding: 14px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid #ded8c9;
+    color: #898272;
+    background: rgba(248, 245, 236, 0.9);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .topbar {
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .brand {
+        font-size: 1.25rem;
+    }
+
+    .topbar-note {
+        max-width: 125px;
+        font-size: 0.72rem;
+        text-align: right;
+    }
+
+    .home-main {
+        padding: 60px 22px 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.3rem, 13vw, 4.6rem);
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .game-panel {
+        padding: 19px;
+        box-shadow: 4px 5px 0 #25251f;
+    }
+
+    .action-card {
+        padding: 12px;
+        gap: 11px;
+    }
+
+    .card-copy strong {
+        font-size: 0.93rem;
+    }
+
+    .card-copy small {
+        font-size: 0.7rem;
+    }
+
+    .doodle-star {
+        top: 6%;
+        left: 3%;
+        font-size: 2.5rem;
+    }
+
+    .doodle-squiggle {
+        top: 9%;
+        right: 2%;
+        font-size: 2.7rem;
+    }
+
+    .doodle-smile {
+        right: 3%;
+        bottom: 7%;
+        font-size: 2.7rem;
+    }
+
+    .doodle-spark {
+        left: 4%;
+        bottom: 9%;
+        font-size: 2rem;
+    }
+
+    .bottom-bar {
+        padding: 13px 16px;
+        font-size: 0.52rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
