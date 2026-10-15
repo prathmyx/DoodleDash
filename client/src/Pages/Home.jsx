@@ -1,12 +1,32 @@
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 export default function Home() {
+    const navigate = useNavigate();
+
+    function handleCreateRoom() {
+        const roomId = Math.random().toString(36).slice(2, 8).toUpperCase();
+        navigate(`/lobby/${roomId}`, {
+            state: { isHost: true },
+        });
+    }
+
+    function handleJoinRoom() {
+        const roomId = prompt("Enter the room code:");
+
+        if (roomId?.trim()) {
+            navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
+                state: { isHost: false },
+            });
+        }
+    }
+
     return (
         <div className="home">
             <header className="topbar">
                 <a className="brand" href="/">
                     <span className="brand-icon">✳</span>
-                    doodle dash<span className="brand-dot">.</span>
+                    Doodle Dash<span className="brand-dot">.</span>
                 </a>
                 <span className="topbar-note">A little chaos, a lot of fun.</span>
             </header>
@@ -38,13 +58,14 @@ export default function Home() {
                             name="username"
                             placeholder="Your legendary nickname..."
                             maxLength={20}
-                            autoComplete="nickname"
+                            autoComplete="nickname name"
                         />
 
                         <div className="action-grid">
                             <button
                                 className="action-card create-card"
                                 type="button"
+                                onClick={handleCreateRoom}
                             >
                                 <span className="card-icon">✳</span>
                                 <span className="card-copy">
@@ -57,6 +78,7 @@ export default function Home() {
                             <button
                                 className="action-card join-card"
                                 type="button"
+                                onClick={handleJoinRoom}    
                             >
                                 <span className="card-icon">↗</span>
                                 <span className="card-copy">
@@ -78,7 +100,7 @@ export default function Home() {
                 <div className="doodle doodle-squiggle">〰</div>
                 <div className="doodle doodle-smile">☺</div>
                 <div className="doodle doodle-spark">✦</div>
-                
+
             </main>
 
             <footer className="bottom-bar">
