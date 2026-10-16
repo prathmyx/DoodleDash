@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Game.css";
 import Canvas from "./Components/Canvas";
 import Word from "./Components/Word";
+import GuessForm from "./Components/GuessForm";
 
 const initialPlayers = [
     { id: 1, name: "PixelPanda", score: 420, color: "coral", drawing: true },
@@ -11,26 +12,13 @@ const initialPlayers = [
 ];
 
 export default function Game() {
-    const [guess, setGuess] = useState("");
+    
     const [players] = useState(initialPlayers);
     const [messages, setMessages] = useState([
         { type: "system", text: "Round 2 has started!" },
         { type: "chat", name: "You", text: "Is it an animal?" },
         { type: "system", text: "Keep guessing!" },
     ]);
-
-    function submitGuess(event) {
-        event.preventDefault();
-
-        const value = guess.trim();
-        if (!value) return;
-
-        setMessages((previous) => [
-            ...previous,
-            { type: "chat", name: "You", text: value },
-        ]);
-        setGuess("");
-    }
 
     return (
         <div className="page">
@@ -42,17 +30,7 @@ export default function Game() {
 
                     <Canvas />
 
-                    <form className="guess-form box" onSubmit={submitGuess}>
-                        <span className="guess-icon">✎</span>
-                        <input
-                            value={guess}
-                            onChange={(event) => setGuess(event.target.value)}
-                            placeholder="Type your guess here..."
-                            maxLength={80}
-                            aria-label="Your guess"
-                        />
-                        <button type="submit">Guess <span>→</span></button>
-                    </form>
+                    <GuessForm setMessages={setMessages}/>
 
                     <p className="game-footnote">
                         No pressure. It's only your artistic reputation.

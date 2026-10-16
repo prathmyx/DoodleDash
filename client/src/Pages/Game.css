@@ -12,55 +12,6 @@
     min-width: 0;
 }
 
-.guess-form {
-    margin-top: 20px;
-    min-height: 58px;
-    padding: 6px 7px 6px 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 2px solid #25251f;
-    border-radius: 12px;
-    background: #fffdf7;
-    box-shadow: 3px 3px 0 #25251f;
-}
-
-.guess-icon {
-    color: #e96f57;
-    font-size: 1.3rem;
-}
-
-.guess-form input {
-    flex: 1;
-    min-width: 0;
-    padding: 10px 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #25251f;
-    font: inherit;
-}
-
-.guess-form input::placeholder {
-    color: #a39b8e;
-}
-
-.guess-form button {
-    padding: 11px 15px;
-    border: 1.5px solid #25251f;
-    border-radius: 8px;
-    background: #aee4c4;
-    color: #25251f;
-    font: inherit;
-    font-size: 0.85rem;
-    font-weight: 1000;
-    cursor: pointer;
-}
-
-.guess-form button:hover {
-    background: #91d9ae;
-}
-
 .game-footnote {
     margin: 14px 0 0;
     color: #8b8377;
@@ -298,16 +249,5 @@
     .game-sidebar {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .guess-form {
-        gap: 7px;
-        padding-left: 10px;
-    }
-
-    .guess-form button {
-        padding: 10px;
     }
 }
