@@ -7,7 +7,7 @@ import Header from "./Pages/Components/Header";
 export default function App() {
     return (
         <BrowserRouter>
-            <Header path="/*/:roomId" />
+            <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/lobby/:roomId" element={<Lobby />} />

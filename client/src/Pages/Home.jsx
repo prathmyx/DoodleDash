@@ -70,7 +70,7 @@ export default function Home() {
                             <button
                                 className="action-card join-card"
                                 type="button"
-                                onClick={handleJoinRoom}    
+                                onClick={handleJoinRoom}
                             >
                                 <span className="card-icon">↗</span>
                                 <span className="card-copy">
