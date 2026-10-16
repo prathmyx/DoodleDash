@@ -23,7 +23,7 @@ export default function Header() {
 
                 {location.pathname.startsWith('/game') && <>
                 <div className="game-room">
-                    ROOM <strong>{location.pathname.split('/').pop()}</strong>
+                    ROOM <strong>{location.state.roomId}</strong>
                 </div>
 
                 <button

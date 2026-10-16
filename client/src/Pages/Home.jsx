@@ -7,7 +7,7 @@ export default function Home() {
     function handleCreateRoom() {
         const roomId = Math.random().toString(36).slice(2, 8).toUpperCase();
         navigate(`/lobby/${roomId}`, {
-            state: { isHost: true },
+            state: { isHost: true, roomId: roomId,}, 
         });
     }
 
@@ -16,7 +16,7 @@ export default function Home() {
 
         if (roomId?.trim()) {
             navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
-                state: { isHost: false },
+                state: { isHost: false, roomId: roomId,},  
             });
         }
     }

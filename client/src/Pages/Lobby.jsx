@@ -17,7 +17,11 @@ export default function Lobby() {
     const players = demoPlayers;
 
     function handleStartGame() {
-        navigate(`/game/${roomId}`);
+        navigate(`/game/${roomId}`,{
+            state: { isHost: isHost, 
+                    roomId: location.state?.roomId
+                    }, 
+        });
     }
 
     function handleCopyCode() {
