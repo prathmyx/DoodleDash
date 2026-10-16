@@ -39,7 +39,7 @@ export default function Home() {
                         Can your friends guess what you're sketching?
                     </p>
 
-                    <div className="game-panel">
+                    <div className="game-panel box">
                         <label className="field-label" htmlFor="username">
                             FIRST THINGS FIRST — WHO ARE YOU?
                         </label>

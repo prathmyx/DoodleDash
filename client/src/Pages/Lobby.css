@@ -45,14 +45,10 @@
 
 .room-card {
     overflow: hidden;
-    background: #fffdf7;
-    border: 2px solid #25251f;
-    border-radius: 18px;
-    box-shadow: 6px 6px 0 #25251f;
 }
 
 .room-info {
-    padding: 24px 26px;
+    padding: 12px 26px;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -98,29 +98,9 @@ export default function Game() {
 
     return (
         <div className="page">
+            {/* 1 310px */}
             <main className="game-layout">
                 <section className="game-center">
-                    <div className="round-strip">
-                        <div className="round-label">
-                            <span className="round-icon">✳</span>
-                            <div>
-                                <span className="mini-label">ROUND</span>
-                                <strong>02 <span>/ 05</span></strong>
-                            </div>
-                        </div>
-
-                        <div className="turn-info">
-                            <span className="turn-avatar">P</span>
-                            <div>
-                                <span className="mini-label">NOW DRAWING</span>
-                                <strong>PixelPanda</strong>
-                            </div>
-                        </div>
-
-                        <div className={`game-timer ${seconds <= 10 ? "urgent" : ""}`}>
-                            <span>◷</span> {minutes}:{secs}
-                        </div>
-                    </div>
 
                     <div className="word-card">
                         <span className="mini-label">GUESS THE WORD</span>
@@ -133,10 +113,27 @@ export default function Game() {
                     </div>
 
                     <div className="drawing-card">
-                        <div className="canvas-topbar">
-                            <span><span className="live-dot" /> LIVE CANVAS</span>
-                            <span className="canvas-tip">Make your best guess!</span>
-                        </div>
+                        <div className="canvas-header">
+                            <div className="round-label">
+                                <span className="round-icon">✳</span>
+                                <div>
+                                    <span className="mini-label">ROUND</span>
+                                    <strong>02 <span>/ 05</span></strong>
+                                </div>
+                            </div>
+
+                            <div className="turn-info">
+                                <span className="turn-avatar">P</span>
+                                <div>
+                                    <span className="mini-label">NOW DRAWING</span>
+                                    <strong>PixelPanda</strong>
+                                </div>
+                            </div>
+
+                            <div className={`game-timer ${seconds <= 10 ? "urgent" : ""}`}>
+                                <span>◷</span> {minutes}:{secs}
+                            </div>
+                        </div>                
 
                         <div className="canvas-wrap">
                             <canvas

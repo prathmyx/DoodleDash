@@ -42,7 +42,7 @@ export default function Lobby() {
                     </p>
                 </div>
 
-                <section className="room-card">
+                <section className="room-card box">
                     <div className="room-info">
                         <div>
                             <span className="section-label">YOUR ROOM CODE</span>
