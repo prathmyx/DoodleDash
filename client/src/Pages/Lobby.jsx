@@ -25,7 +25,7 @@ export default function Lobby() {
     }
 
     return (
-        <div className="lobby-page">
+        <div className="page">
             <main className="lobby-main">
                 <div className="lobby-intro">
                     <span className="eyebrow">THE FUN STARTS HERE</span>

@@ -97,7 +97,7 @@ export default function Game() {
     const secs = String(seconds % 60).padStart(2, "0");
 
     return (
-        <div className="game-page">
+        <div className="page">
             <main className="game-layout">
                 <section className="game-center">
                     <div className="round-strip">

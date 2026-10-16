@@ -22,7 +22,7 @@ export default function Home() {
     }
 
     return (
-        <div className="home">
+        <div className="page">
             <main className="home-main">
                 <section className="hero">
                     <div className="hero-sticker">✎ NO ART SKILLS NEEDED</div>
