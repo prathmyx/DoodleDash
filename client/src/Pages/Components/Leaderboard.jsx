@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Leaderboard.css";
 
 export default function Leaderboard( {players}) {

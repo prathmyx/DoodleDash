@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import "./Game.css";
 import Canvas from "./Components/Canvas";
 import Word from "./Components/Word";
 import GuessForm from "./Components/GuessForm";
 import Leaderboard from "./Components/Leaderboard";
+import Chat from "./Components/Chat";
 
 const initialPlayers = [
     { id: 1, name: "PixelPanda", score: 420, color: "coral", drawing: true },
@@ -41,37 +42,7 @@ export default function Game() {
                 <aside className="game-sidebar">
                     <Leaderboard players={players}/>
 
-                    <section className="side-card chat-card">
-                        <div className="side-heading chat-heading">
-                            <div>
-                                <span className="mini-label">LIVE ACTIVITY</span>
-                                <h2>Guesses & chat</h2>
-                            </div>
-                            <span className="chat-count">{messages.length}</span>
-                        </div>
-
-                        <div className="chat-messages" aria-live="polite">
-                            {messages.map((message, index) => (
-                                <div
-                                    className={`chat-message ${message.type}`}
-                                    key={index}
-                                >
-                                    {message.type === "system" ? (
-                                        <span>✳ {message.text}</span>
-                                    ) : (
-                                        <p>
-                                            <strong>{message.name}</strong>
-                                            <span>{message.text}</span>
-                                        </p>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="chat-note">
-                            Chat and guesses will appear here.
-                        </div>
-                    </section>
+                    <Chat messages={messages}/>
 
                     <div className="players-online">
                         <span className="online-dot" />
