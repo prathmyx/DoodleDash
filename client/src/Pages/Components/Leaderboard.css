@@ -1,0 +1,97 @@
+.trophy {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #fff0b9;
+    font-size: 1.3rem;
+}
+
+.leaderboard-list {
+    padding: 5px 15px;
+}
+
+.leader-row {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border-bottom: 1px dashed #e2dbcf;
+}
+
+.rank-number {
+    width: 22px;
+    flex-shrink: 0;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.leader-avatar {
+    width: 33px;
+    height: 33px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1.5px solid #25251f;
+    border-radius: 9px;
+    font-weight: 1000;
+}
+
+.coral {
+    background: #ffb6a6;
+}
+
+.mint {
+    background: #bce7d1;
+}
+
+.yellow {
+    background: #ffe18b;
+}
+
+.purple {
+    background: #d7c8ff;
+}
+
+.leader-name {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.leader-name strong {
+    overflow: hidden;
+    font-size: 0.79rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leader-name>span {
+    color: #e16a52;
+    font-family: "DM Mono", monospace;
+    font-size: 0.53rem;
+    font-weight: 700;
+}
+
+.leader-score {
+    font-family: "DM Mono", monospace;
+    font-size: 0.78rem;
+}
+
+.your-score {
+    margin: 0 14px 14px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 9px;
+    background: #e6f3e3;
+    font-size: 0.8rem;
+}
+
+.your-score strong {
+    font-family: "DM Mono", monospace;
+}

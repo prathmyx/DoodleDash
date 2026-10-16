@@ -17,15 +17,6 @@
     flex-wrap: wrap;
 }
 
-.mini-label {
-    display: block;
-    color: #827b6e;
-    font-family: "DM Mono", monospace;
-    font-size: 0.63rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
 .letter-slot {
     width: 34px;
     height: 39px;
@@ -42,10 +33,6 @@
 }
 
 @media (max-width: 480px) {
-    .mini-label {
-        display: none;
-    }
-
     .word-blanks {
         gap: 6px;
     }
