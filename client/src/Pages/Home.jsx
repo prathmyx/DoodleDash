@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Header from "./Components/Header";
 import "./Home.css";
 
 export default function Home() {
@@ -23,14 +24,6 @@ export default function Home() {
 
     return (
         <div className="home">
-            <header className="topbar">
-                <a className="brand" href="/">
-                    <span className="brand-icon">✳</span>
-                    Doodle Dash<span className="brand-dot">.</span>
-                </a>
-                <span className="topbar-note">A little chaos, a lot of fun.</span>
-            </header>
-
             <main className="home-main">
                 <section className="hero">
                     <div className="hero-sticker">✎ NO ART SKILLS NEEDED</div>

@@ -9,59 +9,12 @@
     font-family: "Nunito", sans-serif;
 }
 
-.lobby-header {
-    height: 76px;
-    padding: 0 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #25251f;
-    background: #fffdf7;
-}
-
-.lobby-brand {
-    border: none;
-    background: transparent;
-    color: #25251f;
-    font: inherit;
-    font-size: 1.45rem;
-    font-weight: 1000;
-    letter-spacing: -1px;
-    cursor: pointer;
-}
-
-.brand-mark {
-    color: #f16b55;
-    margin-right: 8px;
-}
-
-.brand-period {
-    color: #f16b55;
-}
-
-.lobby-status,
 .section-label,
 .eyebrow {
     font-family: "DM Mono", monospace;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-}
-
-.lobby-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #68675f;
-}
-
-.status-dot {
-    width: 9px;
-    height: 9px;
-    display: inline-block;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: #65ad78;
 }
 
 .lobby-main {
@@ -341,19 +294,6 @@
 }
 
 @media (max-width: 480px) {
-    .lobby-header {
-        height: 65px;
-        padding: 0 5%;
-    }
-
-    .lobby-brand {
-        font-size: 1.2rem;
-    }
-
-    .lobby-status {
-        font-size: 0.6rem;
-    }
-
     .lobby-main {
         padding-top: 38px;
     }

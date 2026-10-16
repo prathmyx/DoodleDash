@@ -1,5 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Lobby.css";
+import Header from "./Components/Header";
 
 const demoPlayers = [
     { id: 1, name: "You", color: "coral", isHost: true },
@@ -26,21 +27,6 @@ export default function Lobby() {
 
     return (
         <div className="lobby-page">
-            <header className="lobby-header">
-                <button
-                    className="lobby-brand"
-                    onClick={() => navigate("/")}
-                >
-                    <span className="brand-mark">✳</span>
-                    doodle dash<span className="brand-period">.</span>
-                </button>
-
-                <span className="lobby-status">
-                    <span className="status-dot" />
-                    ROOM LOBBY
-                </span>
-            </header>
-
             <main className="lobby-main">
                 <div className="lobby-intro">
                     <span className="eyebrow">THE FUN STARTS HERE</span>

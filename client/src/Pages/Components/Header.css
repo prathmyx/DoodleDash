@@ -1,0 +1,101 @@
+.main-header {
+    height: 76px;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #25251f;
+    background: #fffdf7;
+}
+
+.main-brand {
+    border: none;
+    background: transparent;
+    color: #25251f;
+    font: inherit;
+    font-size: 1.45rem;
+    font-weight: 1000;
+    letter-spacing: -1px;
+    cursor: pointer;
+}
+
+.brand-mark {
+    color: #f16b55;
+    font-size: 1.8rem;
+    margin-right: 8px;
+}
+
+.brand-period {
+    color: #f16b55;
+}
+
+.lobby-status {
+    font-family: "DM Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #68675f;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #65ad78;
+}
+
+.game-room {
+    padding: 8px 13px;
+    border: 1.5px dashed #c7beae;
+    border-radius: 8px;
+    color: #777268;
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.game-room strong {
+    color: #25251f;
+}
+
+.leave-button {
+    padding: 9px 13px;
+    border: 1.5px solid #25251f;
+    border-radius: 9px;
+    background: #fffdf7;
+    color: #25251f;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.leave-button:hover {
+    background: #ffe0d8;
+}
+
+@media (max-width: 480px) {
+    .lobby-header {
+        height: 65px;
+        padding: 0 5%;
+    }
+
+    .lobby-brand {
+        font-size: 1.2rem;
+    }
+
+    .lobby-status {
+        font-size: 0.6rem;
+    }
+    
+    .leave-button {
+        padding: 8px 9px;
+        font-size: 0.75rem;
+    }    
+}

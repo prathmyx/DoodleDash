@@ -8,68 +8,6 @@
     font-family: "Nunito", sans-serif;
 }
 
-.game-header {
-    min-height: 70px;
-    padding: 0 4%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    border-bottom: 2px solid #25251f;
-    background: #fffdf7;
-}
-
-.game-brand {
-    border: none;
-    background: none;
-    color: #25251f;
-    font: inherit;
-    font-size: 1.35rem;
-    font-weight: 1000;
-    letter-spacing: -1px;
-    cursor: pointer;
-}
-
-.game-brand>span:first-child {
-    color: #f16b55;
-    margin-right: 7px;
-}
-
-.brand-dot {
-    color: #f16b55;
-}
-
-.game-room {
-    padding: 8px 13px;
-    border: 1.5px dashed #c7beae;
-    border-radius: 8px;
-    color: #777268;
-    font-family: "DM Mono", monospace;
-    font-size: 0.72rem;
-    letter-spacing: 1px;
-}
-
-.game-room strong {
-    color: #25251f;
-    margin-left: 6px;
-}
-
-.leave-button {
-    padding: 9px 13px;
-    border: 1.5px solid #25251f;
-    border-radius: 9px;
-    background: #fffdf7;
-    color: #25251f;
-    font: inherit;
-    font-size: 0.85rem;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-.leave-button:hover {
-    background: #ffe0d8;
-}
-
 .game-layout {
     width: min(1440px, 94%);
     margin: 0 auto;
@@ -622,21 +560,6 @@
 }
 
 @media (max-width: 760px) {
-    .game-header {
-        padding: 12px 4%;
-        flex-wrap: wrap;
-    }
-
-    .game-brand {
-        font-size: 1.15rem;
-    }
-
-    .game-room {
-        order: 3;
-        width: 100%;
-        text-align: center;
-    }
-
     .game-layout {
         width: 92%;
         grid-template-columns: minmax(0, 1fr);
@@ -665,11 +588,6 @@
 }
 
 @media (max-width: 420px) {
-    .leave-button {
-        padding: 8px 9px;
-        font-size: 0.75rem;
-    }
-
     .game-timer {
         min-width: 70px;
         padding: 8px 7px;

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Game.css";
+import Header from "./Components/Header";
 
 const initialPlayers = [
     { id: 1, name: "PixelPanda", score: 420, color: "coral", drawing: true },
@@ -10,8 +11,6 @@ const initialPlayers = [
 ];
 
 export default function Game() {
-    const { roomId } = useParams();
-    const navigate = useNavigate();
     const canvasRef = useRef(null);
     const drawingRef = useRef(false);
     const [tool, setTool] = useState("pen");
@@ -101,23 +100,6 @@ export default function Game() {
 
     return (
         <div className="game-page">
-            <header className="game-header">
-                <button className="game-brand" onClick={() => navigate("/")}>
-                    <span>✳</span> doodle dash<span className="brand-dot">.</span>
-                </button>
-
-                <div className="game-room">
-                    ROOM <strong>{roomId}</strong>
-                </div>
-
-                <button
-                    className="leave-button"
-                    onClick={() => navigate("/")}
-                >
-                    Leave game <span>↗</span>
-                </button>
-            </header>
-
             <main className="game-layout">
                 <section className="game-center">
                     <div className="round-strip">
