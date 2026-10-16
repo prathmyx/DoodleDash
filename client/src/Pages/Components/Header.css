@@ -1,21 +1,34 @@
 .main-header {
-    height: 76px;
-    padding: 0 4%;
+    min-height: 76px;
+    padding: 12px 4%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
     border-bottom: 2px solid #25251f;
     background: #fffdf7;
 }
 
+/* Brand */
+
 .main-brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+
     border: none;
+    padding: 0;
     background: transparent;
     color: #25251f;
+
     font: inherit;
     font-size: 1.45rem;
     font-weight: 1000;
     letter-spacing: -1px;
+    white-space: nowrap;
     cursor: pointer;
 }
 
@@ -29,16 +42,19 @@
     color: #f16b55;
 }
 
+/* Lobby status */
+
 .lobby-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    color: #68675f;
     font-family: "DM Mono", monospace;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #68675f;
 }
 
 .status-dot {
@@ -50,52 +66,143 @@
     background: #65ad78;
 }
 
+/* Game room code */
+
 .game-room {
     padding: 8px 13px;
     border: 1.5px dashed #c7beae;
     border-radius: 8px;
     color: #777268;
+
     font-family: "DM Mono", monospace;
     font-size: 0.75rem;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 .game-room strong {
     color: #25251f;
 }
 
+/* Leave button */
+
 .leave-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-shrink: 0;
+
     padding: 9px 13px;
     border: 1.5px solid #25251f;
     border-radius: 9px;
     background: #fffdf7;
     color: #25251f;
+
     font: inherit;
     font-size: 0.85rem;
     font-weight: 900;
+    white-space: nowrap;
     cursor: pointer;
+
+    transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .leave-button:hover {
     background: #ffe0d8;
+    transform: translateY(-1px);
 }
 
-@media (max-width: 480px) {
-    .lobby-header {
-        height: 65px;
-        padding: 0 5%;
+/* Tablets and small laptops */
+
+@media (max-width: 700px) {
+    .main-header {
+        padding: 12px 4%;
+        gap: 12px;
     }
 
-    .lobby-brand {
-        font-size: 1.2rem;
+    .main-brand {
+        font-size: 1.3rem;
+    }
+
+    .brand-mark {
+        font-size: 1.55rem;
+        margin-right: 6px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .main-header {
+        min-height: 65px;
+        padding: 12px 5%;
+        gap: 10px;
+    }
+
+    .main-brand {
+        font-size: 1.15rem;
+        letter-spacing: -0.7px;
+    }
+
+    .brand-mark {
+        font-size: 1.4rem;
+        margin-right: 5px;
     }
 
     .lobby-status {
+        gap: 6px;
         font-size: 0.6rem;
+        letter-spacing: 1px;
     }
-    
+
+    .status-dot {
+        width: 7px;
+        height: 7px;
+    }
+
     .leave-button {
         padding: 8px 9px;
+        gap: 4px;
         font-size: 0.75rem;
-    }    
+    }
+
+    /* New Row */
+    .game-room {
+        order: 1;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 10px;
+        text-align: center;
+        font-size: 0.7rem;
+    }
+}
+
+/* Very narrow phones */
+
+@media (max-width: 350px) {
+    .main-header {
+        padding-right: 3%;
+        padding-left: 3%;
+        gap: 8px;
+    }
+
+    .main-brand {
+        font-size: 1rem;
+    }
+
+    .brand-mark {
+        font-size: 1.2rem;
+        margin-right: 4px;
+    }
+
+    .leave-button {
+        padding: 7px;
+        font-size: 0.7rem;
+    }
+
+    .lobby-status {
+        font-size: 0.55rem;
+        letter-spacing: 0.5px;
+    }
 }

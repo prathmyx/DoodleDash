@@ -311,21 +311,6 @@ button {
 /* Responsive */
 
 @media (max-width: 600px) {
-    .topbar {
-        height: 65px;
-        padding: 0 20px;
-    }
-
-    .brand {
-        font-size: 1.25rem;
-    }
-
-    .topbar-note {
-        max-width: 125px;
-        font-size: 0.72rem;
-        text-align: right;
-    }
-
     .home-main {
         padding: 60px 22px 70px;
     }
@@ -384,14 +369,5 @@ button {
     .bottom-bar {
         padding: 13px 16px;
         font-size: 0.52rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
     }
 }
