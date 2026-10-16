@@ -112,7 +112,7 @@ export default function Game() {
                         <span className="word-hint">Category: Everyday things</span>
                     </div>
 
-                    <div className="drawing-card">
+                    <div className="drawing-card box">
                         <div className="canvas-header">
                             <div className="round-label">
                                 <span className="round-icon">✳</span>
@@ -192,7 +192,7 @@ export default function Game() {
                         </div>
                     </div>
 
-                    <form className="guess-form" onSubmit={submitGuess}>
+                    <form className="guess-form box" onSubmit={submitGuess}>
                         <span className="guess-icon">✎</span>
                         <input
                             value={guess}

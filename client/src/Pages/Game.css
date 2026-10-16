@@ -160,10 +160,7 @@
 
 .drawing-card {
     overflow: hidden;
-    border: 2px solid #25251f;
-    border-radius: 15px;
-    background: #fffdf7;
-    box-shadow: 4px 4px 0 #25251f;
+    padding: 0;
 }
 
 .online-dot {
@@ -602,7 +599,7 @@
         gap: 6px;
     }
 
-    .brush-control>span {
+    .brush-control > span {
         font-size: 0.55rem;
     }
 
@@ -629,12 +626,6 @@
     .canvas-header .turn-avatar {
         width: 28px;
         height: 28px;
-        flex-shrink: 0;
-    }
-
-    .canvas-header .mini-label {
-        font-size: 0.5rem;
-        letter-spacing: 0.3px;
     }
 
     .canvas-header .round-label strong,
@@ -646,9 +637,5 @@
         min-width: 0;
         padding: 6px;
         font-size: 0.8rem;
-    }
-
-    .canvas-header .game-timer > span {
-        margin-right: 2px;
     }
 }
