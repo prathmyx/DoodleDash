@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import "./Game.css";
-import Header from "./Components/Header";
 
 const initialPlayers = [
     { id: 1, name: "PixelPanda", score: 420, color: "coral", drawing: true },

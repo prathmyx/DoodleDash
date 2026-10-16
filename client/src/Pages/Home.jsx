@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Header from "./Components/Header";
 import "./Home.css";
 
 export default function Home() {

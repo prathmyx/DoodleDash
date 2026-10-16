@@ -1,6 +1,5 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Lobby.css";
-import Header from "./Components/Header";
 
 const demoPlayers = [
     { id: 1, name: "You", color: "coral", isHost: true },
