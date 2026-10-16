@@ -24,7 +24,7 @@ export default function Game() {
 
     return (
         <div className="page">
-            {/* 1 310px */}
+
             <main className="game-layout">
                 <section className="game-center">
 
@@ -37,6 +37,7 @@ export default function Game() {
                     <p className="game-footnote">
                         No pressure. It's only your artistic reputation.
                     </p>
+
                 </section>
 
                 <aside className="game-sidebar">
@@ -48,8 +49,10 @@ export default function Game() {
                         <span className="online-dot" />
                         <strong>{players.length} players</strong> in this room
                     </div>
+
                 </aside>
             </main>
+            
         </div>
     );
 }
