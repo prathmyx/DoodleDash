@@ -83,7 +83,7 @@ export default function Canvas() {
                 <span className="turn-avatar">P</span>
                 <div>
                     <span className="mini-label">NOW DRAWING</span>
-                    <strong>PixelPanda</strong>
+                    <strong>Ppppp</strong>
                 </div>
             </div>
 

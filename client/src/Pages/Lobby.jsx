@@ -3,8 +3,8 @@ import "./Lobby.css";
 
 const demoPlayers = [
     { id: 1, name: "You", color: "coral", isHost: true },
-    { id: 2, name: "PixelPanda", color: "mint", isHost: false },
-    { id: 3, name: "Sketchy", color: "yellow", isHost: false },
+    { id: 2, name: "Ppp", color: "mint", isHost: false },
+    { id: 3, name: "Ttttt", color: "yellow", isHost: false },
 ];
 
 export default function Lobby() {
