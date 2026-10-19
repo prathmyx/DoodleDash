@@ -1,14 +1,21 @@
-import express from 'express';
+import express from "express";
+import { createServer } from "http";
+import { Server } from "socket.io";
 
-const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(express.json());
-
-app.get("/api/v1/hello", (req, res) => {
-    res.json({ message: "Hello from Node.js!" });
+const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+    cors: {
+        origin: ['http://localhost:5173']
+    }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+io.on("connection", (socket) => {
+    console.log("Connected:", socket.id);
+});
+
+httpServer.listen(PORT, () => {
+    console.log(`Server Running On http://localhost:${PORT}`);
 });
