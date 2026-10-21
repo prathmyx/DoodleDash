@@ -1,25 +1,41 @@
 import { useNavigate } from "react-router-dom";
+import { createRoom, joinRoom } from "../Helpers/RoomActions";
+import { useRoom } from "../Context/RoomContext";
+import { usePlayers } from "../Context/PlayersContext";
 import "./Home.css";
 
 export default function Home() {
     const navigate = useNavigate();
+    const { setRoom} = useRoom();
+    const { setPlayers} = usePlayers();
 
     function handleCreateRoom() {
-        const roomId = Math.random().toString(36).slice(2, 8).toUpperCase();
-        navigate(`/lobby/${roomId}`, {
-            state: { isHost: true, roomId: roomId,}, 
-        });
+
+        createRoom(setRoom, setPlayers)
+            .then((result) => {
+                navigate(`/lobby/${result.roomId.toUpperCase()}`, {
+                    state: { isHost: true, roomId: result.roomId,}, 
+                });
+            })
+            .catch((error) => {
+                console.log("Error:", error.message);
+            });
     }
 
     function handleJoinRoom() {
         const roomId = prompt("Enter the room code:");
 
-        if (roomId?.trim()) {
-            navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
-                state: { isHost: false, roomId: roomId,},  
-            });
-        }
+        joinRoom(roomId?.trim(), setRoom, setPlayers)
+            .then(() => {
+                navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
+                    state: { isHost: false, roomId: result.roomId,},  
+                });
+            })
+            .catch((error) => {
+                console.log("Error:", error.message);
+            })
     }
+
 
     return (
         <div className="page">
