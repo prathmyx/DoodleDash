@@ -1,0 +1,54 @@
+import { randomUUID } from "crypto";
+
+export interface Room {
+    id: string;
+    hostId: string;
+    players: string[];
+    maxPlayers: number;
+    status: "waiting" | "playing";
+}
+
+const rooms = new Map<string, Room>();
+
+export function createRoom(hostId: string): Room {
+    const id = randomUUID().slice(0, 6).toUpperCase();
+
+    const room: Room = {
+        id,
+        hostId,
+        players: [hostId],
+        maxPlayers: 4,
+        status: "waiting",
+    };
+
+    rooms.set(id, room);
+
+    return room;
+}
+
+export function joinRoom(
+    roomId: string,
+    playerId: string
+): Room {
+    const room = rooms.get(roomId.toUpperCase());
+
+    if (!room) {
+        throw new Error("Room not found");
+    }
+
+    if (room.status !== "waiting") {
+        throw new Error("Game has already started");
+    }
+
+    if (room.players.includes(playerId)) {
+        return room;
+    }
+
+    if (room.players.length >= room.maxPlayers) {
+        throw new Error("Room is full");
+    }
+
+    room.players.push(playerId);
+
+    return room;
+}
