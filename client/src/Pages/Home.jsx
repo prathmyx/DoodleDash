@@ -23,8 +23,13 @@ export default function Home() {
     }
 
     function handleJoinRoom() {
-        const roomId = prompt("Enter the room code:");
+        const roomId = prompt("Enter the room code:").trim();
 
+        if (roomId.length < 6) {
+            alert("Invalid Room Code");
+            return;
+        }
+        
         joinRoom(roomId?.trim(), setRoom, setPlayers)
             .then(() => {
                 navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
