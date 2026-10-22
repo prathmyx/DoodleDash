@@ -44,8 +44,21 @@ export default function Lobby() {
         });
     }
 
-    function handleCopyCode() {
+    let interval = null;
+
+    function handleCopyCode(e) {
+        let button = e.target;
         navigator.clipboard.writeText(roomId);
+
+        button.textContent = "✓ Copied!";
+        button.style.backgroundColor = "#C8E6C9";
+
+        if (interval) clearTimeout(interval);
+
+        interval = setTimeout(() => {
+            button.textContent = "↗ Copy code";
+            button.style.backgroundColor = "#FFF0B9";
+        }, 1000);
     }
 
     return (
