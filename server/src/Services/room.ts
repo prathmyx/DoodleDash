@@ -24,7 +24,12 @@ export function createRoom(hostId: string, name: string): Room {
     const room: Room = {
         id,
         hostId,
-        players: [{id:hostId, name, color:getColor()} ],
+        players: [{
+            id:hostId, 
+            name, 
+            color:getColor(),
+            isHost: true,
+        } ],
         maxPlayers: 8,
         status: "waiting",
     };

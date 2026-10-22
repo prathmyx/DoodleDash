@@ -2,6 +2,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 import { useRoom } from "../Context/RoomContext";
+import { useName } from "../Context/NameContext";
 import { usePlayers } from "../Context/PlayersContext";
 import { useSocket } from "../Context/SocketContext";
 
@@ -9,14 +10,10 @@ import { roomUpdate, leaveRoom } from "../Helpers/RoomActions";
 
 import "./Lobby.css";
 
-const demoPlayers = [
-    { id: 1, name: "You", color: "coral", isHost: true },
-    { id: 2, name: "Ppp", color: "mint", isHost: false },
-    { id: 3, name: "Ttttt", color: "yellow", isHost: false },
-];
-
 export default function Lobby() {
     const { room, setRoom } = useRoom();
+    const { name } = useName();
+
     const { roomId } = useParams();
     
     const { players, setPlayers } = usePlayers();
@@ -127,8 +124,8 @@ export default function Lobby() {
                                     <span className="player-name">
                                         {player.name}
                                     </span>
-                                    {player?.isHost && (
-                                        <span className="host-label">HOST</span>
+                                    {(player?.isHost || player.id === socket.id) && (
+                                        <span className="host-label">{player.id === socket.id ? "You" : "Host"}</span>
                                     )}
                                 </div>
 
