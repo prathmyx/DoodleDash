@@ -48,3 +48,68 @@ button {
     border-radius: 18px;
     box-shadow: 6px 6px 0 #25251f;
 }
+
+/* Colors */
+.coral {
+    background: #ffb6a6;
+}
+
+.mint {
+    background: #bce7d1;
+}
+
+.yellow {
+    background: #ffe18b;
+}
+
+.lavender {
+    background: #d6c5f7;
+}
+
+.sky-blue {
+    background: #b9dcf7;
+}
+
+.peach {
+    background: #ffd1b8;
+}
+
+.pink {
+    background: #f7bfd4;
+}
+
+.lilac {
+    background: #e5c6eb;
+}
+
+.ice-blue {
+    background: #c8e8ed;
+}
+
+.lemon {
+    background: #f5f3a8;
+}
+
+.sage {
+    background: #cbd9b7;
+}
+
+.apricot {
+    background: #ffc994;
+}
+
+.periwinkle {
+    background: #c5cbf9;
+}
+
+.seafoam {
+    background: #b5e5df;
+}
+
+.rose {
+    background: #f2b8b5;
+}
+
+.butter {
+    background: #fff0b3;
+}

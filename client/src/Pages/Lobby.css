@@ -143,18 +143,6 @@
     transform: rotate(-3deg);
 }
 
-.coral {
-    background: #ffb6a6;
-}
-
-.mint {
-    background: #bce7d1;
-}
-
-.yellow {
-    background: #ffe18b;
-}
-
 .player-details {
     flex: 1;
     display: flex;
