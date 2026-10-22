@@ -21,7 +21,7 @@ export default function Header() {
                     ROOM LOBBY
                 </span>}
 
-                {location.pathname.startsWith('/game') && <>
+                {( location.pathname.startsWith('/game') || location.pathname.startsWith('/lobby') )&& <>
                 <div className="game-room">
                     ROOM <strong>{location.state.roomId}</strong>
                 </div>
