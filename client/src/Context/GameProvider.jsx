@@ -1,14 +1,17 @@
 import { RoomProvider } from "./RoomContext";
 import { PlayersProvider } from "./PlayersContext";
+import { NameProvider } from "./NameContext";
 
 export function GameProvider({children}) {
     return (
         <>
-            <RoomProvider >
-                <PlayersProvider>
-                    {children}
-                </PlayersProvider>
-            </RoomProvider>
+            <NameProvider>
+                <RoomProvider >
+                    <PlayersProvider>
+                        {children}
+                    </PlayersProvider>
+                </RoomProvider>
+            </NameProvider>
         </>
     );
 }

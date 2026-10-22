@@ -2,17 +2,18 @@ import { useNavigate } from "react-router-dom";
 import { createRoom, joinRoom } from "../Helpers/RoomActions";
 import { useRoom } from "../Context/RoomContext";
 import { usePlayers } from "../Context/PlayersContext";
+import { useName } from "../Context/NameContext";
 import "./Home.css";
 
 export default function Home() {
     const navigate = useNavigate();
     const { setRoom} = useRoom();
     const { setPlayers} = usePlayers();
+    const { name, setName } = useName();
 
     function handleCreateRoom() {
-        let username = document.getElementById('username').value;
 
-        createRoom(username, setRoom, setPlayers)
+        createRoom(name, setRoom, setPlayers)
             .then((result) => {
                 navigate(`/lobby/${result.roomId.toUpperCase()}`, {
                     state: { isHost: true, roomId: result.roomId,}, 
@@ -24,8 +25,6 @@ export default function Home() {
     }
 
     function handleJoinRoom() {
-        let username = document.getElementById('username').value;
-
         const roomId = prompt("Enter the room code:").trim();
 
         if (roomId.length < 6) {
@@ -33,7 +32,7 @@ export default function Home() {
             return;
         }
 
-        joinRoom(roomId?.trim(), username, setRoom, setPlayers)
+        joinRoom(roomId?.trim(), name, setRoom, setPlayers)
             .then((result) => {
                 navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
                     state: { isHost: false, roomId: result.roomId,},  
@@ -75,13 +74,18 @@ export default function Home() {
                             placeholder="Your legendary nickname..."
                             maxLength={20}
                             autoComplete="nickname name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             required
                         />
 
-                        <div className="action-grid">
+                        <div className="action-grid"
+                             title={!name.trim() ? "Please enter a username first!" : ""}
+                        >
                             <button
                                 className="action-card create-card"
                                 type="button"
+                                disabled={!name.trim()}
                                 onClick={handleCreateRoom}
                             >
                                 <span className="card-icon">✳</span>
@@ -95,6 +99,7 @@ export default function Home() {
                             <button
                                 className="action-card join-card"
                                 type="button"
+                                disabled={!name.trim()}
                                 onClick={handleJoinRoom}
                             >
                                 <span className="card-icon">↗</span>

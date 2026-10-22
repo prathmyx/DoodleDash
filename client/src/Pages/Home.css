@@ -131,6 +131,11 @@
     transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
+.action-card:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .create-card {
     background: #f6d65e;
     box-shadow: 3px 3px 0 #25251f;
