@@ -1,22 +1,30 @@
 import { randomUUID } from "crypto";
+import getColor from "../Utils/getColor.ts"
+
+export interface Players {
+    id: string;
+    name: string;
+    color: string;
+    isHost?: boolean;
+}
 
 export interface Room {
     id: string;
     hostId: string;
-    players: string[];
+    players: Players[];
     maxPlayers: number;
     status: "waiting" | "playing";
 }
 
 const rooms = new Map<string, Room>();
 
-export function createRoom(hostId: string): Room {
+export function createRoom(hostId: string, name: string): Room {
     const id = randomUUID().slice(0, 6).toUpperCase();
 
     const room: Room = {
         id,
         hostId,
-        players: [hostId],
+        players: [{id:hostId, name, color:getColor()} ],
         maxPlayers: 4,
         status: "waiting",
     };
@@ -28,7 +36,8 @@ export function createRoom(hostId: string): Room {
 
 export function joinRoom(
     roomId: string,
-    playerId: string
+    playerId: string,
+    name: string
 ): Room {
     const room = rooms.get(roomId.toUpperCase());
 
@@ -40,7 +49,7 @@ export function joinRoom(
         throw new Error("Game has already started");
     }
 
-    if (room.players.includes(playerId)) {
+    if (room.players.some((existPlayer) => existPlayer.id === playerId)) {
         return room;
     }
 
@@ -48,7 +57,7 @@ export function joinRoom(
         throw new Error("Room is full");
     }
 
-    room.players.push(playerId);
+    room.players.push({id:playerId, name, color:getColor()});
 
     return room;
 }

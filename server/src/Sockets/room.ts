@@ -8,9 +8,9 @@ export function registerRoomHandlers(
     io: Server,
     socket: Socket
 ) {
-    socket.on("create-room", (callback) => {
+    socket.on("create-room", (username, callback) => {
         try {
-            const room = createRoom(socket.id);
+            const room = createRoom(socket.id, username);
 
             socket.join(room.id);
 
@@ -27,9 +27,9 @@ export function registerRoomHandlers(
         }
     });
 
-    socket.on("join-room", (roomId, callback) => {
+    socket.on("join-room", (payload, callback) => {
         try {
-            const room = joinRoom(roomId, socket.id);
+            const room = joinRoom(payload.roomId, socket.id, payload.username);
 
             socket.join(room.id);
 
