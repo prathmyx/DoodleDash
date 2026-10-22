@@ -1,4 +1,5 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { usePlayers } from "../Context/PlayersContext";
 import "./Lobby.css";
 
 const demoPlayers = [
@@ -9,12 +10,11 @@ const demoPlayers = [
 
 export default function Lobby() {
     const { roomId } = useParams();
+    const { players } = usePlayers();
     const location = useLocation();
     const navigate = useNavigate();
 
     const isHost = location.state?.isHost ?? false;
-
-    const players = demoPlayers;
 
     function handleStartGame() {
         navigate(`/game/${roomId}`,{
