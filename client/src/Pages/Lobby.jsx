@@ -2,17 +2,13 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 import { useRoom } from "../Context/RoomContext";
-import { useName } from "../Context/NameContext";
 import { usePlayers } from "../Context/PlayersContext";
 import { useSocket } from "../Context/SocketContext";
-
-import { roomUpdate, leaveRoom } from "../Helpers/RoomActions";
 
 import "./Lobby.css";
 
 export default function Lobby() {
     const { room, setRoom } = useRoom();
-    const { name } = useName();
 
     const { roomId } = useParams();
     
@@ -25,8 +21,8 @@ export default function Lobby() {
     const isHost = location.state?.isHost ?? false;
 
     useEffect(() => {
-        function handleRoomUpdate(room) {
-            roomUpdate(room, setPlayers);
+        function handleRoomUpdate(newPlayers) {
+            setPlayers(newPlayers);
         }
 
         function handleHostLeft() {

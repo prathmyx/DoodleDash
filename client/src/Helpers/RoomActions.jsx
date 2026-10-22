@@ -64,7 +64,3 @@ export function leaveRoom(roomId) {
         });
     });
 }
-
-export const roomUpdate = (room, setPlayers) => {
-    setPlayers(room.players);
-}

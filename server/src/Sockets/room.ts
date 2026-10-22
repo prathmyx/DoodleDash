@@ -34,7 +34,7 @@ export function registerRoomHandlers(
 
             socket.join(room.id);
 
-            io.to(room.id).emit("room:updated", room);
+            io.to(room.id).emit("room:updated", room.players);
 
             callback({
                 ok: true,
@@ -56,7 +56,7 @@ export function registerRoomHandlers(
             socket.leave(status.room.id);
 
             if (status.valid) {
-                io.to(status.room.id).emit("room:updated", status.room);
+                io.to(status.room.id).emit("room:updated", status.room.players);
             } else {
                 io.to(status.room.id).emit("host-left");
             }
