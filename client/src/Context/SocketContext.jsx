@@ -19,10 +19,10 @@ export function SocketProvider( {children} ) {
         socket.on('disconnect', onDisconnect);
 
         return () => {
-            socket.off('connecte', onConnect);
+            socket.off('connect', onConnect);
             socket.off('disconnect', onDisconnect);
         }
-    })
+    }, []);
 
     const connectSocket = () => {
         if (!socket.connected) socket.connect()

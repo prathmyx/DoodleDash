@@ -1,7 +1,7 @@
 import { socket } from "../socket";
 
 export const createRoom = (name, setRoom, setPlayers) => {
-    socket.connect();
+    if (!socket.connected) socket.connect();
 
     return new Promise((resolve, reject) => {
         socket.timeout(3000).emit("create-room", name, (err, result) => {
