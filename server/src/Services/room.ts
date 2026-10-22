@@ -35,7 +35,6 @@ export function createRoom(hostId: string, name: string): Room {
     };
 
     rooms.set(id, room);
-    console.log(rooms);
 
     return room;
 }
