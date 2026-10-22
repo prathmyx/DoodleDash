@@ -29,9 +29,9 @@ export default function Home() {
             alert("Invalid Room Code");
             return;
         }
-        
+
         joinRoom(roomId?.trim(), setRoom, setPlayers)
-            .then(() => {
+            .then((result) => {
                 navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
                     state: { isHost: false, roomId: result.roomId,},  
                 });
