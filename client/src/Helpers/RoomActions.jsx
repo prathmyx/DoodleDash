@@ -1,10 +1,10 @@
 import { socket } from "../socket";
 
-export const createRoom = (setRoom, setPlayers) => {
+export const createRoom = (username, setRoom, setPlayers) => {
     socket.connect();
 
     return new Promise((resolve, reject) => {
-        socket.timeout(3000).emit("create-room", (err, result) => {
+        socket.timeout(3000).emit("create-room", username, (err, result) => {
             if (err) {
                 reject(new Error("Create room timed out. Please try again."));
                 return;
@@ -23,11 +23,11 @@ export const createRoom = (setRoom, setPlayers) => {
     });
 };
 
-export const joinRoom = (roomId, setRoom, setPlayers) => {
+export const joinRoom = (roomId, username, setRoom, setPlayers) => {
     socket.connect();
 
     return new Promise((resolve, reject) => {
-        socket.timeout(3000).emit("join-room", roomId, (err, result) => {
+        socket.timeout(3000).emit("join-room", {roomId, username}, (err, result) => {
             if (err) {
                 reject(new Error("Join room timed out. Please try again."));
                 return;

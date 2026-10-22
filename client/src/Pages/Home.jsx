@@ -10,8 +10,9 @@ export default function Home() {
     const { setPlayers} = usePlayers();
 
     function handleCreateRoom() {
+        let username = document.getElementById('username').value;
 
-        createRoom(setRoom, setPlayers)
+        createRoom(username, setRoom, setPlayers)
             .then((result) => {
                 navigate(`/lobby/${result.roomId.toUpperCase()}`, {
                     state: { isHost: true, roomId: result.roomId,}, 
@@ -23,6 +24,8 @@ export default function Home() {
     }
 
     function handleJoinRoom() {
+        let username = document.getElementById('username').value;
+
         const roomId = prompt("Enter the room code:").trim();
 
         if (roomId.length < 6) {
@@ -30,7 +33,7 @@ export default function Home() {
             return;
         }
 
-        joinRoom(roomId?.trim(), setRoom, setPlayers)
+        joinRoom(roomId?.trim(), username, setRoom, setPlayers)
             .then((result) => {
                 navigate(`/lobby/${roomId.trim().toUpperCase()}`, {
                     state: { isHost: false, roomId: result.roomId,},  
@@ -72,6 +75,7 @@ export default function Home() {
                             placeholder="Your legendary nickname..."
                             maxLength={20}
                             autoComplete="nickname name"
+                            required
                         />
 
                         <div className="action-grid">
