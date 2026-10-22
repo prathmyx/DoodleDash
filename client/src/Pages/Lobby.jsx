@@ -1,10 +1,11 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
+import { useRoom } from "../Context/RoomContext";
 import { usePlayers } from "../Context/PlayersContext";
 import { useSocket } from "../Context/SocketContext";
 
-import { roomUpdate } from "../Helpers/RoomActions";
+import { roomUpdate, leaveRoom } from "../Helpers/RoomActions";
 
 import "./Lobby.css";
 
@@ -15,7 +16,9 @@ const demoPlayers = [
 ];
 
 export default function Lobby() {
+    const { room, setRoom } = useRoom();
     const { roomId } = useParams();
+    
     const { players, setPlayers } = usePlayers();
     const { socket } = useSocket();
 
@@ -29,10 +32,26 @@ export default function Lobby() {
             roomUpdate(room, setPlayers);
         }
 
+        function handleHostLeft() {
+            alert("Host Has Left The Game, You have To return to Home");
+            leaveRoom(room.roomId)
+            .then((result) => {
+                console.log("result", result);
+                setRoom(null);
+                setPlayers([]);
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log("Error:", error.message);
+            });
+        }
+
         socket.on("room:updated", handleRoomUpdate);
+        socket.on("host-left", handleHostLeft);
 
         return () => {
             socket.off("room:updated", handleRoomUpdate);
+            socket.off("host-left", handleHostLeft);
         }
     }, [socket]);
     

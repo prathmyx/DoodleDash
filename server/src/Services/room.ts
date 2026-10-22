@@ -30,6 +30,7 @@ export function createRoom(hostId: string, name: string): Room {
     };
 
     rooms.set(id, room);
+    console.log(rooms);
 
     return room;
 }
@@ -61,3 +62,31 @@ export function joinRoom(
 
     return room;
 }
+
+type status = {
+    room: Room,
+    valid: boolean
+}
+
+export function leaveRoom(roomId: string, playerId: string): status {
+    const room = rooms.get(roomId.toUpperCase());
+
+    if (!room) {
+        throw new Error("Room not found");
+    }
+
+    if (room.hostId !== playerId) {
+        room.players = room.players.filter((player) => player.id !== playerId);
+        return {
+            valid: true, 
+            room: room
+        };
+
+    } else {
+        rooms.delete(roomId);
+        return {
+            valid: false,
+            room: room
+        };
+    }
+} 

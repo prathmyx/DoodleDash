@@ -2,6 +2,7 @@ import type { Server, Socket } from "socket.io";
 import {
     createRoom,
     joinRoom,
+    leaveRoom,
 } from "../Services/room.ts";
 
 export function registerRoomHandlers(
@@ -44,6 +45,30 @@ export function registerRoomHandlers(
             callback({
                 ok: false,
                 error: error.message || "Failed to join room"
+            });
+        }
+    });
+
+    socket.on("leave-room", (roomId, callback) => {
+        try {
+            const status = leaveRoom(roomId, socket.id);
+
+            socket.leave(status.room.id);
+
+            if (status.valid) {
+                io.to(status.room.id).emit("room:updated", status.room);
+            } else {
+                io.to(status.room.id).emit("host-left");
+            }
+
+            callback({
+                ok:true
+            });
+
+        } catch (error) {
+            callback({
+                ok:false,
+                error: error.message || "Failed to leave room"
             });
         }
     });
