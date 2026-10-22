@@ -25,7 +25,7 @@ export function createRoom(hostId: string, name: string): Room {
         id,
         hostId,
         players: [{id:hostId, name, color:getColor()} ],
-        maxPlayers: 4,
+        maxPlayers: 8,
         status: "waiting",
     };
 
