@@ -34,16 +34,9 @@ export default function Lobby() {
 
         function handleHostLeft() {
             alert("Host Has Left The Game, You have To return to Home");
-            leaveRoom(room.roomId)
-            .then((result) => {
-                console.log("result", result);
-                setRoom(null);
-                setPlayers([]);
-                navigate('/');
-            })
-            .catch((error) => {
-                console.log("Error:", error.message);
-            });
+            setRoom(null);
+            setPlayers([]);
+            navigate('/');
         }
 
         socket.on("room:updated", handleRoomUpdate);
