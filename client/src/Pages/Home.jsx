@@ -1,12 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
+import { useSocket } from "../Context/SocketContext.jsx";
 import { useRoom } from "../Context/RoomContext";
 import { usePlayers } from "../Context/PlayersContext";
-import { useCallback, useEffect } from "react";
-
 import { useName } from "../Context/NameContext";
-
-import { socket } from "../socket.js";
 
 import { createRoom, joinRoom } from "../Helpers/RoomActions";
 import "./Home.css";
@@ -17,12 +15,11 @@ export default function Home() {
     const { setRoom} = useRoom();
     const { setPlayers} = usePlayers();
     const { name, setName } = useName();
+    const { disconnectSocket } = useSocket();
 
 
     useEffect( () => {
-        if (socket.connected) {
-            socket.disconnect();
-        };
+        disconnectSocket();
     }, []);
 
     function handleCreateRoom() {
