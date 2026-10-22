@@ -1,5 +1,11 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+
 import { usePlayers } from "../Context/PlayersContext";
+import { useSocket } from "../Context/SocketContext";
+
+import { roomUpdate } from "../Helpers/RoomActions";
+
 import "./Lobby.css";
 
 const demoPlayers = [
@@ -10,12 +16,26 @@ const demoPlayers = [
 
 export default function Lobby() {
     const { roomId } = useParams();
-    const { players } = usePlayers();
+    const { players, setPlayers } = usePlayers();
+    const { socket } = useSocket();
+
     const location = useLocation();
     const navigate = useNavigate();
 
     const isHost = location.state?.isHost ?? false;
 
+    useEffect(() => {
+        function handleRoomUpdate(room) {
+            roomUpdate(room, setPlayers);
+        }
+
+        socket.on("room:updated", handleRoomUpdate);
+
+        return () => {
+            socket.off("room:updated", handleRoomUpdate);
+        }
+    }, [socket]);
+    
     function handleStartGame() {
         navigate(`/game/${roomId}`,{
             state: { isHost: isHost, 

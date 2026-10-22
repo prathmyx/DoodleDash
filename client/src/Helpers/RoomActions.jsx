@@ -45,3 +45,7 @@ export const joinRoom = (roomId, name, setRoom, setPlayers) => {
         });
     });
 };
+
+export const roomUpdate = (room, setPlayers) => {
+    setPlayers(room.players);
+}
