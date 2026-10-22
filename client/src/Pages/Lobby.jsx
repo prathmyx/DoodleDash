@@ -82,7 +82,7 @@ export default function Lobby() {
                                     <span className="player-name">
                                         {player.name}
                                     </span>
-                                    {player.isHost && (
+                                    {player?.isHost && (
                                         <span className="host-label">HOST</span>
                                     )}
                                 </div>
