@@ -8,19 +8,20 @@ import { useSocket } from "../Context/SocketContext";
 import "./Lobby.css";
 
 export default function Lobby() {
-    const { room, setRoom } = useRoom();
-
-    const { roomId } = useParams();
-    
-    const { players, setPlayers } = usePlayers();
-    const { socket } = useSocket();
-
     const location = useLocation();
     const navigate = useNavigate();
 
-    const isHost = location.state?.isHost ?? false;
+    const { room, setRoom } = useRoom();
+    const { players, setPlayers } = usePlayers();
+    const { socket } = useSocket();
 
+    const { roomId } = useParams();
+    
+    const isHost = location.state?.isHost ?? false;
+    
     useEffect(() => {
+        if (room?.roomId !== roomId) navigate('/');
+        
         function handleRoomUpdate(newPlayers) {
             setPlayers(newPlayers);
         }
