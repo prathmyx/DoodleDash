@@ -95,3 +95,16 @@
 .your-score strong {
     font-family: "DM Mono", monospace;
 }
+
+.players-online {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 5px;
+    color: #827b6e;
+    font-size: 0.78rem;
+}
+
+.players-online strong {
+    color: #25251f;
+}

@@ -65,19 +65,6 @@
     color: #e96f57;
 }
 
-.players-online {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 0 5px;
-    color: #827b6e;
-    font-size: 0.78rem;
-}
-
-.players-online strong {
-    color: #25251f;
-}
-
 /* Responsive layout */
 
 @media (max-width: 1000px) {

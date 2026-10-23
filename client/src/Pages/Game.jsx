@@ -1,23 +1,17 @@
 import { useState } from "react";
-import "./Game.css";
+
 import Canvas from "./Components/Canvas";
 import Word from "./Components/Word";
 import GuessForm from "./Components/GuessForm";
 import Leaderboard from "./Components/Leaderboard";
 import Chat from "./Components/Chat";
 
-const initialPlayers = [
-    { id: 1, name: "Ppppp", score: 420, color: "coral", drawing: true },
-    { id: 2, name: "You", score: 280, color: "mint", drawing: false },
-    { id: 3, name: "Ttttttt", score: 150, color: "yellow", drawing: false },
-    { id: 4, name: "Lllllll", score: 80, color: "purple", drawing: false },
-];
+import "./Game.css";
 
 export default function Game() {
-    const [players] = useState(initialPlayers);
 
     const [messages, setMessages] = useState([
-        { type: "system", text: "Round 2 has started!" },
+        { type: "system", text: "Round 1 has started!" },
         { type: "chat", name: "You", text: "Kya hein yeh?" },
         { type: "system", text: "Keep guessing!" },
     ]);
@@ -41,15 +35,9 @@ export default function Game() {
                 </section>
 
                 <aside className="game-sidebar">
-                    <Leaderboard players={players}/>
+                    <Leaderboard />
 
                     <Chat messages={messages}/>
-
-                    <div className="players-online">
-                        <span className="online-dot" />
-                        <strong>{players.length} players</strong> in this room
-                    </div>
-
                 </aside>
             </main>
 
