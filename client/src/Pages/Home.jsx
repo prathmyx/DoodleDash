@@ -36,7 +36,11 @@ export default function Home() {
     }
 
     function handleJoinRoom() {
-        const roomId = prompt("Enter the room code:").trim();
+        const roomId = prompt("Enter the room code:");
+
+        if (roomId === null) {
+            return;
+        }
 
         if (roomId.length < 6) {
             alert("Invalid Room Code");
