@@ -16,7 +16,7 @@ export interface Room {
     status: "waiting" | "playing";
 }
 
-const rooms = new Map<string, Room>();
+export const rooms = new Map<string, Room>();
 
 export function createRoom(hostId: string, name: string): Room {
     const id = randomUUID().slice(0, 6).toUpperCase();

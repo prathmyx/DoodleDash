@@ -5,6 +5,8 @@ import { useRoom } from "../Context/RoomContext";
 import { usePlayers } from "../Context/PlayersContext";
 import { useSocket } from "../Context/SocketContext";
 
+import { startGame } from "../Helpers/GameActions";
+
 import "./Lobby.css";
 
 export default function Lobby() {
@@ -33,21 +35,30 @@ export default function Lobby() {
             navigate('/');
         }
 
+        function handleStart() {
+            navigate(`/game/${room.roomId}`);
+        }
+
         socket.on("room:updated", handleRoomUpdate);
         socket.on("host-left", handleHostLeft);
+        socket.on("game:start", handleStart);
 
         return () => {
             socket.off("room:updated", handleRoomUpdate);
             socket.off("host-left", handleHostLeft);
+            socket.off("game:start", handleStart);
         }
     }, [socket]);
     
     function handleStartGame() {
-        navigate(`/game/${roomId}`,{
-            state: { isHost: isHost, 
-                    roomId: location.state?.roomId
-                    }, 
-        });
+
+        startGame(room.roomId)
+            .then((result) => {
+                navigate(`/game/${result.roomId}`)
+            })
+            .catch((error) => {
+                console.log("Error:", error.message);
+            });
     }
 
     let interval = null;
