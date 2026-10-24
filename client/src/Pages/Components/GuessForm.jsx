@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./GuessForm.css";
 
-export default function GuessForm({ setMessages }) {
+export default function GuessForm() {
     const [guess, setGuess] = useState("");
 
     function submitGuess(event) {
@@ -10,10 +10,10 @@ export default function GuessForm({ setMessages }) {
         const value = guess.trim();
         if (!value) return;
 
-        setMessages((previous) => [
-            ...previous,
-            { type: "chat", name: "You", text: value },
-        ]);
+        // setMessages((previous) => [
+        //     ...previous,
+        //     { type: "chat", name: "You", text: value },
+        // ]);
         setGuess("");
     }
 

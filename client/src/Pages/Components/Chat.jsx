@@ -1,6 +1,15 @@
+import { useState } from "react";
+
 import "./Chat.css";
 
-export default function Chat( {messages}) {
+export default function Chat() {
+
+    const [messages, setMessages] = useState([
+        { type: "system", text: "Round 1 has started!" },
+        { type: "chat", name: "You", text: "Kya hein yeh?" },
+        { type: "system", text: "Keep guessing!" },
+    ]);
+
     return (
         <section className="side-card chat-card">
             <div className="side-heading chat-heading">

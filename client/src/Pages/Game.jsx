@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Canvas from "./Components/Canvas";
 import Word from "./Components/Word";
 import GuessForm from "./Components/GuessForm";
@@ -9,12 +7,6 @@ import Chat from "./Components/Chat";
 import "./Game.css";
 
 export default function Game() {
-
-    const [messages, setMessages] = useState([
-        { type: "system", text: "Round 1 has started!" },
-        { type: "chat", name: "You", text: "Kya hein yeh?" },
-        { type: "system", text: "Keep guessing!" },
-    ]);
 
     return (
         <div className="page">
@@ -26,7 +18,7 @@ export default function Game() {
 
                     <Canvas />
 
-                    <GuessForm setMessages={setMessages}/>
+                    <GuessForm />
 
                     <p className="game-footnote">
                         No pressure. It's only your artistic reputation.
@@ -37,7 +29,7 @@ export default function Game() {
                 <aside className="game-sidebar">
                     <Leaderboard />
 
-                    <Chat messages={messages}/>
+                    <Chat />
                 </aside>
             </main>
 
