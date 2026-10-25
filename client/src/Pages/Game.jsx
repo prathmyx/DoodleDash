@@ -53,6 +53,7 @@ export default function Game() {
         socket.on("game:finished", onFinished);
         socket.on("game:draw", onDraw);
         socket.on("game:clear", onClear);
+        socket.emit("game:sync", roomId);
         return () => {
             socket.off("game:state", onState);
             socket.off("game:your-word", onWord);
