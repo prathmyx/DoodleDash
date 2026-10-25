@@ -159,6 +159,7 @@ export default function Lobby() {
                                 <button
                                     className="start-button"
                                     onClick={handleStartGame}
+                                    disabled={players.length < 2}
                                 >
                                     Start the game <span>→</span>
                                 </button>

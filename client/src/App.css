@@ -49,6 +49,11 @@ button {
     box-shadow: 6px 6px 0 #25251f;
 }
 
+button:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 /* Colors */
 .coral {
     background: #ffb6a6;

@@ -15,6 +15,10 @@ export function startGame(roomId: string, hostId: string): Room {
         throw new Error("Only Host Can Start The Game");
     }
 
+    if (room.players.length < 2) {
+        throw new Error("Minimum 2 Players Required");
+    }
+
     room.status = "playing";
 
     return room;
