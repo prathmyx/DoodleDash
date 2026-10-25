@@ -87,6 +87,20 @@ export function leaveRoom(roomId: string, playerId: string): status {
         throw new Error("Room not found");
     }
 
+    if (room.status == 'playing') {
+        room.players.map((player) => {
+            if (player.id == playerId) {
+                return {...player, left:true };
+            }
+            return player;
+        })
+
+        return {
+            valid:true,
+            room: room
+        };
+    }
+
     if (room.hostId !== playerId) {
         room.players = room.players.filter((player) => player.id !== playerId);
         return {
