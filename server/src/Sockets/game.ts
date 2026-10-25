@@ -43,12 +43,20 @@ export function registerGameHandlers(io: Server, socket: Socket) {
     socket.on("game:start", (roomId: string, callback: (result: any) => void) => {
         try {
             const state = startGame(roomId, socket.id);
+            io.to(state.roomId).emit("game:start");
             broadcastState(io, state.roomId);
             scheduleTurn(io, state.roomId);
             callback({ ok: true, roomId: state.roomId });
         } catch (error) {
             callback({ ok: false, error: error instanceof Error ? error.message : "Failed to start game" });
         }
+    });
+
+    socket.on("game:sync", (roomId: string) => {
+        const state = games.get(String(roomId).toUpperCase());
+        if (!state || state.status !== "playing") return;
+        socket.emit("game:state", publicGameState(state));
+        if (state.drawerId === socket.id) socket.emit("game:your-word", { word: state.word });
     });
 
     socket.on("game:guess", (payload: { roomId: string; guess: string }, callback?: (result: any) => void) => {
