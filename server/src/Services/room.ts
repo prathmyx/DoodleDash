@@ -6,6 +6,8 @@ export interface Players {
     name: string;
     color: string;
     isHost?: boolean;
+    score: number;
+    left?: boolean
 }
 
 export interface Room {
@@ -29,6 +31,7 @@ export function createRoom(hostId: string, name: string): Room {
             name, 
             color:getColor(),
             isHost: true,
+            score: 0,
         } ],
         maxPlayers: 8,
         status: "waiting",
@@ -62,7 +65,12 @@ export function joinRoom(
         throw new Error("Room is full");
     }
 
-    room.players.push({id:playerId, name, color:getColor()});
+    room.players.push({
+        id:playerId, 
+        name, 
+        color:getColor(),
+        score: 0,
+        });
 
     return room;
 }
